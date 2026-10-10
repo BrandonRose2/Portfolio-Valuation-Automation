@@ -1,0 +1,123 @@
+# Property Valuation Software: Where We Are and What Phase 2 Needs
+
+**To:** Marc Menowitz · **CC:** Abraham<br>
+**From:** Brandon Rose · October 10, 2026<br>
+**Goal:** upload any offering memorandum (OM) and get a full investment analysis.
+
+> **Short answer:** We're not there yet, but the foundation is in place. We have enough to build a working version for affordable-housing (LIHTC) deals like Cambridge Court. To get to "any OM in, full analysis out," we need some past deals, a few decisions from Marc, and Abraham's assumptions written down. This memo lists exactly what is needed, who it's needed from, and why.
+
+---
+
+## 1. Where things stand
+
+**Done so far**
+
+- **Reference deal set up.** Cambridge Court is our answer key: the OM, the seller's files (T-12, rent roll, payroll, turnover report) and Abraham's finished model.
+- **Input map.** All 99 input cells in the underwriting template are mapped to where each value comes from (OM, T-12, rent roll, CoStar, public data, or an assumption) and the rule for filling it.
+- **T-12 reader, working and tested.** It reads a seller's 12-month operating statement and sorts every line into the model's 49 income and expense categories.
+    - On Cambridge Court it handled all 78 lines, and its NOI matched the seller's to the penny ($986,818.73).
+    - It caught a $352 line (Paymode Rebates) that the Cambridge model had dropped by accident. Catching that kind of error is part of the point.
+    - Using only its general rules, with no Cambridge-specific setup, it matched 74 of Abraham's 75 line assignments. That's a good sign it will work on deals from other management systems.
+
+**What we learned**
+
+Abraham's model runs mostly on the **seller's T-12 and rent roll, not the OM**. Some OMs, including Cambridge's, include a unit-by-unit rent roll and an expense summary, so the software can work in two stages:
+
+1. **Quick first look from the OM alone,** to screen deals as they come in.
+2. **Full underwriting** once the seller's T-12 and rent roll arrive.
+
+---
+
+## 2. What Phase 2 delivers
+
+By the end of Phase 2, the software will take a LIHTC deal and produce:
+
+- **The quick first look from the OM alone:** property facts, unit mix, income, expenses, NOI and a price check.
+- **Full underwriting from the seller's files:** T-12 (done) plus the rent roll grouped by unit type and income level, with voucher and tax-credit rent limits looked up automatically.
+- **A side-by-side comparison with Abraham's finished models,** showing every place the software's numbers differ from his and why.
+
+Phase 3 adds the returns, the GP/LP profit split, Excel export and a review screen. Phase 4 expands to other deal types and becomes a hosted web app.
+
+---
+
+## 3. Decisions needed from Marc
+
+### Decision 1: Which deals should the software handle?
+The current model is built for affordable housing: income limits, tax-credit rents and Section 8 vouchers.
+
+- **Option A: LIHTC / affordable only.** Fastest. Uses the current model as-is.
+- **Option B: Affordable plus market-rate.** Market-rate deals need a simpler version of the model with no income limits. It adds time, but covers more deals.
+- **Recommendation:** start with A, and design so B can be added later.
+
+### Decision 2: How do we get CoStar market rents?
+**Why it matters:** the model compares each unit's rent with what similar apartments nearby rent for (the "market rent"). That number comes from CoStar. It drives the upside in the scenarios and supports the exit cap rate. Today Abraham looks it up by hand.
+
+**The issue:** CoStar is a paid service, and its terms of use restrict automated access. Abraham mentioned its login security is stricter than RealPage or Yardi. If the software logs in with a regular user account and pulls data automatically, the account could be flagged or suspended. We should confirm the rules with our CoStar rep before doing anything automated.
+
+**The options:**
+
+| Option | How it works | Pros | Cons |
+|---|---|---|---|
+| **A. Manual export (recommended to start)** | For each deal, Abraham (or whoever has the login) runs the CoStar rent comp report and drops the PDF or Excel file into the software. The software reads it. | No extra cost. No risk to the CoStar account. Can start right away. | About 5–10 minutes of manual work per deal. |
+| **B. CoStar API / data license** | Ask our CoStar rep for official data access built for software. | Fully automatic. Allowed under CoStar's terms. | Extra cost (price unknown until we ask). May take time to set up. |
+| **C. Automated login with a regular account** | The software logs in as a user and pulls the data. | Automatic. No new contract. | Likely against CoStar's terms. Risk of losing the account. **Not recommended.** |
+| **D. Other sources** | Use the OM's own rent comps, HUD Small Area rent limits, or another data provider. | Cheaper or free. | Less accurate than CoStar. Abraham would need to accept the difference. |
+
+**Recommendation:** start with **A** for Phase 2. In parallel, Marc or Abraham asks our CoStar rep about **B** (cost and terms) so we can decide on full automation later.
+
+**Needed from Marc:** approval of Option A for now, and a yes or no on asking CoStar about API pricing. Also: who on the team holds the CoStar login today?
+
+### Decision 3: What should the final output look like?
+Options: a one-page deal summary, the filled-in Excel model, the Dashboard tab, or all three. A sample of a summary Marc likes, or a description of one, would help me build the right thing.
+
+### Decision 4: Budget and setup
+- **AI usage cost** for reading OMs. This is low per deal, but there will be a monthly bill.
+- **Hosting** for the eventual web app.
+- **Privacy:** rent rolls include tenant names, and payroll files include employee pay. Project files are stored privately.
+- Not needed for Phase 2, but good to raise now.
+
+### Decision 5: The previous programmer's work
+Marc mentioned someone worked on this for 7 months. Access to what he built, and a short conversation about where it got stuck, could save weeks and help avoid repeating the same problems.
+
+---
+
+## 4. What's needed from Abraham
+
+1. **5–10 past deals.** For each: the OM, the seller's files (T-12 and rent roll at minimum), and the finished model. A mix of brokers, states and property types is best. Each finished deal becomes a test the software has to pass.
+2. **Assumptions confirmed.** The input map lists 40 standard values (vacancy, growth rates, fees, payroll percentages, reserves) and 10 per-deal decisions (purchase price, interest rate, insurance, GP/LP split, exit cap, hold period and others). I'll send the list. Abraham marks each one as "always use this value" or "decided per deal," and adds the rule for each per-deal decision.
+3. **Answers on four issues in the Cambridge model:**
+    - Scenario 1 (Max Current Vouchers) gives the same results as Scenario 0. Is a formula missing?
+    - The GP equity share is 10% on the Dashboard but 25% in the profit split. Which is right?
+    - The $1.32M rehab budget is raised at purchase but never spent in any scenario. Should it be?
+    - Should the existing 5.09% loan that the OM offers to transfer to the buyer be modeled as an option?
+4. **Rent-roll rules:**
+    - Unit-code keys for each management system (OneSite, Yardi, others).
+    - Which properties fall under HOME limits, and where he gets the current HOME tables.
+    - Where to find the placed-in-service date when the OM doesn't show it.
+    - Where utility allowances come from for each property.
+5. **About an hour a week** to review results with me. Abraham knows where the numbers should land, and that check is what makes the software trustworthy.
+
+---
+
+## 5. Summary of asks
+
+| # | Item | Owner | Why it matters |
+|---|---|---|---|
+| 1 | Scope: LIHTC only, or market-rate too | Marc | Sets what gets built first |
+| 2 | CoStar: approve manual export now; ask rep about API pricing; name the login holder | Marc / Abraham | Market rents drive the upside and exit value |
+| 3 | Sample or description of the output wanted | Marc | So the software produces the right report |
+| 4 | Access to the previous programmer's work | Marc | Avoid repeating 7 months of dead ends |
+| 5 | 5–10 past deals with finished models | Abraham | Needed to test "any OM" |
+| 6 | Assumptions marked fixed vs. per-deal | Abraham | Lets the software fill in defaults safely |
+| 7 | Answers on the 4 model issues | Abraham | Avoids building the errors into the software |
+| 8 | Unit codes, HOME limits, utility allowance sources | Abraham | Needed for the rent roll step |
+| 9 | Weekly 1-hour review | Abraham | Keeps the numbers accurate |
+
+## 6. What I'll do next
+
+- **Build the rent roll step:** group units by type and income level, and handle voucher and subsidy lines.
+- **Connect public data:** HUD rent limits by ZIP code, state tax-credit rent limits, and HOME limits.
+- **Run Cambridge Court from the OM alone** and compare it with Abraham's model, to show how close the quick first look gets.
+- **Send Abraham the assumptions list** to mark up.
+
+I'll give a firm Phase 2 timeline once the past deals and the CoStar decision are in hand, since those set the pace.
