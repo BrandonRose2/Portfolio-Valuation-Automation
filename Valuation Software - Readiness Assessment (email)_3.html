@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Property Valuation Software: Phase 2</title></head>
+<body style="margin:0;padding:0;background-color:#f4f6f9;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#f4f6f9;"><tr><td align="center" style="padding:24px 12px;">
+<table role="presentation" width="680" cellpadding="0" cellspacing="0" border="0" style="max-width:680px;width:100%;background-color:#ffffff;border:1px solid #dde3ea;">
+<tr><td style="background-color:#1F3A5F;padding:22px 28px;font-family:Arial,Helvetica,sans-serif;">
+<div style="font-size:21px;line-height:28px;font-weight:bold;color:#ffffff;">Property Valuation Software: Where We Are and What Phase 2 Needs</div>
+<div style="font-size:13px;line-height:20px;color:#c9d6e6;padding-top:4px;">Goal: upload any offering memorandum and get a full investment analysis &nbsp;·&nbsp; October 10, 2026</div>
+</td></tr>
+<tr><td style="padding:24px 28px 8px 28px;font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:22px;color:#222222;">
+<p style="margin:0 0 12px 0;">Marc and Abraham,</p>
+<p style="margin:0 0 16px 0;">Here is where the valuation software stands and what I need from each of you for the next phase. Marc, there are five decisions in section 3; the CoStar one is the most time-sensitive. Abraham, your items are in section 4. A one-table summary of every ask is in section 5.</p>
+<blockquote style="margin:0 0 14px 0;padding:12px 16px;background-color:#eef2f7;border-left:4px solid #1F3A5F;">
+<p style="margin:0;"><strong>Short answer:</strong> We're not there yet, but the foundation is in place. We have enough to build a working version for affordable-housing (LIHTC) deals like Cambridge Court. To get to "any OM in, full analysis out," we need some past deals, a few decisions from Marc, and Abraham's assumptions written down. This memo lists exactly what is needed, who it's needed from, and why.</p>
+</blockquote>
+<hr / style="border:none;border-top:1px solid #dde3ea;margin:22px 0;">
+<h2 style="font-family:Arial,Helvetica,sans-serif;font-size:18px;line-height:25px;color:#1F3A5F;margin:26px 0 8px 0;padding-bottom:4px;border-bottom:2px solid #1F3A5F;">1. Where things stand</h2>
+<p style="margin:0 0 10px 0;"><strong>Done so far</strong></p>
+<ul style="margin:0 0 10px 0;padding-left:22px;">
+<li style="margin-bottom:6px;"><strong>Reference deal set up.</strong> Cambridge Court is our answer key: the OM, the seller's files (T-12, rent roll, payroll, turnover report) and Abraham's finished model.</li>
+<li style="margin-bottom:6px;"><strong>Input map.</strong> All 99 input cells in the underwriting template are mapped to where each value comes from (OM, T-12, rent roll, CoStar, public data, or an assumption) and the rule for filling it.</li>
+<li style="margin-bottom:6px;"><strong>T-12 reader, working and tested.</strong> It reads a seller's 12-month operating statement and sorts every line into the model's 49 income and expense categories.<ul style="margin:0 0 10px 0;padding-left:22px;">
+<li style="margin-bottom:6px;">On Cambridge Court it handled all 78 lines, and its NOI matched the seller's to the penny ($986,818.73).</li>
+<li style="margin-bottom:6px;">It caught a $352 line (Paymode Rebates) that the Cambridge model had dropped by accident. Catching that kind of error is part of the point.</li>
+<li style="margin-bottom:6px;">Using only its general rules, with no Cambridge-specific setup, it matched 74 of Abraham's 75 line assignments. That's a good sign it will work on deals from other management systems.</li>
+</ul>
+</li>
+</ul>
+<p style="margin:0 0 10px 0;"><strong>What we learned</strong></p>
+<p style="margin:0 0 10px 0;">Abraham's model runs mostly on the <strong>seller's T-12 and rent roll, not the OM</strong>. Some OMs, including Cambridge's, include a unit-by-unit rent roll and an expense summary, so the software can work in two stages:</p>
+<ol style="margin:0 0 10px 0;padding-left:22px;">
+<li style="margin-bottom:6px;"><strong>Quick first look from the OM alone,</strong> to screen deals as they come in.</li>
+<li style="margin-bottom:6px;"><strong>Full underwriting</strong> once the seller's T-12 and rent roll arrive.</li>
+</ol>
+<hr / style="border:none;border-top:1px solid #dde3ea;margin:22px 0;">
+<h2 style="font-family:Arial,Helvetica,sans-serif;font-size:18px;line-height:25px;color:#1F3A5F;margin:26px 0 8px 0;padding-bottom:4px;border-bottom:2px solid #1F3A5F;">2. What Phase 2 delivers</h2>
+<p style="margin:0 0 10px 0;">By the end of Phase 2, the software will take a LIHTC deal and produce:</p>
+<ul style="margin:0 0 10px 0;padding-left:22px;">
+<li style="margin-bottom:6px;"><strong>The quick first look from the OM alone:</strong> property facts, unit mix, income, expenses, NOI and a price check.</li>
+<li style="margin-bottom:6px;"><strong>Full underwriting from the seller's files:</strong> T-12 (done) plus the rent roll grouped by unit type and income level, with voucher and tax-credit rent limits looked up automatically.</li>
+<li style="margin-bottom:6px;"><strong>A side-by-side comparison with Abraham's finished models,</strong> showing every place the software's numbers differ from his and why.</li>
+</ul>
+<p style="margin:0 0 10px 0;">Phase 3 adds the returns, the GP/LP profit split, Excel export and a review screen. Phase 4 expands to other deal types and becomes a hosted web app.</p>
+<hr / style="border:none;border-top:1px solid #dde3ea;margin:22px 0;">
+<h2 style="font-family:Arial,Helvetica,sans-serif;font-size:18px;line-height:25px;color:#1F3A5F;margin:26px 0 8px 0;padding-bottom:4px;border-bottom:2px solid #1F3A5F;">3. Decisions needed from Marc</h2>
+<h3 style="font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:21px;color:#1F3A5F;margin:18px 0 6px 0;">Decision 1: Which deals should the software handle?</h3>
+<p style="margin:0 0 10px 0;">The current model is built for affordable housing: income limits, tax-credit rents and Section 8 vouchers.</p>
+<ul style="margin:0 0 10px 0;padding-left:22px;">
+<li style="margin-bottom:6px;"><strong>Option A: LIHTC / affordable only.</strong> Fastest. Uses the current model as-is.</li>
+<li style="margin-bottom:6px;"><strong>Option B: Affordable plus market-rate.</strong> Market-rate deals need a simpler version of the model with no income limits. It adds time, but covers more deals.</li>
+<li style="margin-bottom:6px;"><strong>Recommendation:</strong> start with A, and design so B can be added later.</li>
+</ul>
+<h3 style="font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:21px;color:#1F3A5F;margin:18px 0 6px 0;">Decision 2: How do we get CoStar market rents?</h3>
+<p style="margin:0 0 10px 0;"><strong>Why it matters:</strong> the model compares each unit's rent with what similar apartments nearby rent for (the "market rent"). That number comes from CoStar. It drives the upside in the scenarios and supports the exit cap rate. Today Abraham looks it up by hand.</p>
+<p style="margin:0 0 10px 0;"><strong>The issue:</strong> CoStar is a paid service, and its terms of use restrict automated access. Abraham mentioned its login security is stricter than RealPage or Yardi. If the software logs in with a regular user account and pulls data automatically, the account could be flagged or suspended. We should confirm the rules with our CoStar rep before doing anything automated.</p>
+<p style="margin:0 0 10px 0;"><strong>The options:</strong></p>
+<table style="font-family:Arial,Helvetica,sans-serif;border-collapse:collapse;width:100%;font-size:13px;line-height:18px;margin:6px 0 14px 0;">
+<thead>
+<tr>
+<th style="background-color:#1F3A5F;color:#ffffff;text-align:left;padding:7px 8px;font-weight:bold;">Option</th>
+<th style="background-color:#1F3A5F;color:#ffffff;text-align:left;padding:7px 8px;font-weight:bold;">How it works</th>
+<th style="background-color:#1F3A5F;color:#ffffff;text-align:left;padding:7px 8px;font-weight:bold;">Pros</th>
+<th style="background-color:#1F3A5F;color:#ffffff;text-align:left;padding:7px 8px;font-weight:bold;">Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border-bottom:1px solid #d5dce6;padding:7px 8px;vertical-align:top;"><strong>A. Manual export (recommended to start)</strong></td>
+<td style="border-bottom:1px solid #d5dce6;padding:7px 8px;vertical-align:top;">For each deal, Abraham (or whoever has the login) runs the CoStar rent comp report and drops the PDF or Excel file into the software. The software reads it.</td>
+<td style="border-bottom:1px solid #d5dce6;padding:7px 8px;vertical-align:top;">No extra cost. No risk to the CoStar account. Can start right away.</td>
+<td style="border-bottom:1px solid #d5dce6;padding:7px 8px;vertical-align:top;">About 5–10 minutes of manual work per deal.</td>
+</tr>
+<tr>
+<td style="border-bottom:1px solid #d5dce6;padding:7px 8px;vertical-align:top;"><strong>B. CoStar API / data license</strong></td>
+<td style="border-bottom:1px solid #d5dce6;padding:7px 8px;vertical-align:top;">Ask our CoStar rep for official data access built for software.</td>
+<td style="border-bottom:1px solid #d5dce6;padding:7px 8px;vertical-align:top;">Fully automatic. Allowed under CoStar's terms.</td>
+<td style="border-bottom:1px solid #d5dce6;padding:7px 8px;vertical-align:top;">Extra cost (price unknown until we ask). May take time to set up.</td>
+</tr>
+<tr>
+<td style="border-bottom:1px solid #d5dce6;padding:7px 8px;vertical-align:top;"><strong>C. Automated login with a regular account</strong></td>
+<td style="border-bottom:1px solid #d5dce6;padding:7px 8px;vertical-align:top;">The software logs in as a user and pulls the data.</td>
+<td style="border-bottom:1px solid #d5dce6;padding:7px 8px;vertical-align:top;">Automatic. No new contract.</td>
+<td style="border-bottom:1px solid #d5dce6;padding:7px 8px;vertical-align:top;">Likely against CoStar's terms. Risk of losing the account. <strong>Not recommended.</strong></td>
+</tr>
+<tr>
+<td style="border-bottom:1px solid #d5dce6;padding:7px 8px;vertical-align:top;"><strong>D. Other sources</strong></td>
+<td style="border-bottom:1px solid #d5dce6;padding:7px 8px;vertical-align:top;">Use the OM's own rent comps, HUD Small Area rent limits, or another data provider.</td>
+<td style="border-bottom:1px solid #d5dce6;padding:7px 8px;vertical-align:top;">Cheaper or free.</td>
+<td style="border-bottom:1px solid #d5dce6;padding:7px 8px;vertical-align:top;">Less accurate than CoStar. Abraham would need to accept the difference.</td>
+</tr>
+</tbody>
+</table>
+<p style="margin:0 0 10px 0;"><strong>Recommendation:</strong> start with <strong>A</strong> for Phase 2. In parallel, Marc or Abraham asks our CoStar rep about <strong>B</strong> (cost and terms) so we can decide on full automation later.</p>
+<p style="margin:0 0 10px 0;"><strong>Needed from Marc:</strong> approval of Option A for now, and a yes or no on asking CoStar about API pricing. Also: who on the team holds the CoStar login today?</p>
+<h3 style="font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:21px;color:#1F3A5F;margin:18px 0 6px 0;">Decision 3: What should the final output look like?</h3>
+<p style="margin:0 0 10px 0;">Options: a one-page deal summary, the filled-in Excel model, the Dashboard tab, or all three. A sample of a summary Marc likes, or a description of one, would help me build the right thing.</p>
+<h3 style="font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:21px;color:#1F3A5F;margin:18px 0 6px 0;">Decision 4: Budget and setup</h3>
+<ul style="margin:0 0 10px 0;padding-left:22px;">
+<li style="margin-bottom:6px;"><strong>AI usage cost</strong> for reading OMs. This is low per deal, but there will be a monthly bill.</li>
+<li style="margin-bottom:6px;"><strong>Hosting</strong> for the eventual web app.</li>
+<li style="margin-bottom:6px;"><strong>Privacy:</strong> rent rolls include tenant names, and payroll files include employee pay. Project files are stored privately.</li>
+<li style="margin-bottom:6px;">Not needed for Phase 2, but good to raise now.</li>
+</ul>
+<h3 style="font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:21px;color:#1F3A5F;margin:18px 0 6px 0;">Decision 5: The previous programmer's work</h3>
+<p style="margin:0 0 10px 0;">Marc mentioned someone worked on this for 7 months. Access to what he built, and a short conversation about where it got stuck, could save weeks and help avoid repeating the same problems.</p>
+<hr / style="border:none;border-top:1px solid #dde3ea;margin:22px 0;">
+<h2 style="font-family:Arial,Helvetica,sans-serif;font-size:18px;line-height:25px;color:#1F3A5F;margin:26px 0 8px 0;padding-bottom:4px;border-bottom:2px solid #1F3A5F;">4. What's needed from Abraham</h2>
+<ol style="margin:0 0 10px 0;padding-left:22px;">
+<li style="margin-bottom:6px;"><strong>5–10 past deals.</strong> For each: the OM, the seller's files (T-12 and rent roll at minimum), and the finished model. A mix of brokers, states and property types is best. Each finished deal becomes a test the software has to pass.</li>
+<li style="margin-bottom:6px;"><strong>Assumptions confirmed.</strong> The input map lists 40 standard values (vacancy, growth rates, fees, payroll percentages, reserves) and 10 per-deal decisions (purchase price, interest rate, insurance, GP/LP split, exit cap, hold period and others). I'll send the list. Abraham marks each one as "always use this value" or "decided per deal," and adds the rule for each per-deal decision.</li>
+<li style="margin-bottom:6px;"><strong>Answers on four issues in the Cambridge model:</strong><ul style="margin:0 0 10px 0;padding-left:22px;">
+<li style="margin-bottom:6px;">Scenario 1 (Max Current Vouchers) gives the same results as Scenario 0. Is a formula missing?</li>
+<li style="margin-bottom:6px;">The GP equity share is 10% on the Dashboard but 25% in the profit split. Which is right?</li>
+<li style="margin-bottom:6px;">The $1.32M rehab budget is raised at purchase but never spent in any scenario. Should it be?</li>
+<li style="margin-bottom:6px;">Should the existing 5.09% loan that the OM offers to transfer to the buyer be modeled as an option?</li>
+</ul>
+</li>
+<li style="margin-bottom:6px;"><strong>Rent-roll rules:</strong><ul style="margin:0 0 10px 0;padding-left:22px;">
+<li style="margin-bottom:6px;">Unit-code keys for each management system (OneSite, Yardi, others).</li>
+<li style="margin-bottom:6px;">Which properties fall under HOME limits, and where he gets the current HOME tables.</li>
+<li style="margin-bottom:6px;">Where to find the placed-in-service date when the OM doesn't show it.</li>
+<li style="margin-bottom:6px;">Where utility allowances come from for each property.</li>
+</ul>
+</li>
+<li style="margin-bottom:6px;"><strong>About an hour a week</strong> to review results with me. Abraham knows where the numbers should land, and that check is what makes the software trustworthy.</li>
+</ol>
+<hr / style="border:none;border-top:1px solid #dde3ea;margin:22px 0;">
+<h2 style="font-family:Arial,Helvetica,sans-serif;font-size:18px;line-height:25px;color:#1F3A5F;margin:26px 0 8px 0;padding-bottom:4px;border-bottom:2px solid #1F3A5F;">5. Summary of asks</h2>
+<table style="font-family:Arial,Helvetica,sans-serif;border-collapse:collapse;width:100%;font-size:13px;line-height:18px;margin:6px 0 14px 0;">
+<thead>
+<tr>
+<th style="background-color:#1F3A5F;color:#ffffff;text-align:left;padding:7px 8px;font-weight:bold;">#</th>
+<th style="background-color:#1F3A5F;color:#ffffff;text-align:left;padding:7px 8px;font-weight:bold;">Item</th>
+<th style="background-color:#1F3A5F;color:#ffffff;text-align:left;padding:7px 8px;font-weight:bold;">Owner</th>
+<th style="background-color:#1F3A5F;color:#ffffff;text-align:left;padding:7px 8px;font-weight:bold;">Why it matters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border-bottom:1px solid #d5dce6;padding:7px 8px;vertical-align:top;">1</td>
+<td style="border-bottom:1px solid #d5dce6;padding:7px 8px;vertical-align:top;">Scope: LIHTC only, or market-rate too</td>
+<td style="border-bottom:1px solid #d5dce6;padding:7px 8px;vertical-align:top;">Marc</td>
+<td style="border-bottom:1px solid #d5dce6;padding:7px 8px;vertical-align:top;">Sets what gets built first</td>
+</tr>
+<tr>
+<td style="border-bottom:1px solid #d5dce6;padding:7px 8px;vertical-align:top;">2</td>
+<td style="border-bottom:1px solid #d5dce6;padding:7px 8px;vertical-align:top;">CoStar: approve manual export now; ask rep about API pricing; name the login holder</td>
+<td style="border-bottom:1px solid #d5dce6;padding:7px 8px;vertical-align:top;">Marc / Abraham</td>
+<td style="border-bottom:1px solid #d5dce6;padding:7px 8px;vertical-align:top;">Market rents drive the upside and exit value</td>
+</tr>
+<tr>
+<td style="border-bottom:1px solid #d5dce6;padding:7px 8px;vertical-align:top;">3</td>
+<td style="border-bottom:1px solid #d5dce6;padding:7px 8px;vertical-align:top;">Sample or description of the output wanted</td>
+<td style="border-bottom:1px solid #d5dce6;padding:7px 8px;vertical-align:top;">Marc</td>
+<td style="border-bottom:1px solid #d5dce6;padding:7px 8px;vertical-align:top;">So the software produces the right report</td>
+</tr>
+<tr>
+<td style="border-bottom:1px solid #d5dce6;padding:7px 8px;vertical-align:top;">4</td>
+<td style="border-bottom:1px solid #d5dce6;padding:7px 8px;vertical-align:top;">Access to the previous programmer's work</td>
+<td style="border-bottom:1px solid #d5dce6;padding:7px 8px;vertical-align:top;">Marc</td>
+<td style="border-bottom:1px solid #d5dce6;padding:7px 8px;vertical-align:top;">Avoid repeating 7 months of dead ends</td>
+</tr>
+<tr>
+<td style="border-bottom:1px solid #d5dce6;padding:7px 8px;vertical-align:top;">5</td>
+<td style="border-bottom:1px solid #d5dce6;padding:7px 8px;vertical-align:top;">5–10 past deals with finished models</td>
+<td style="border-bottom:1px solid #d5dce6;padding:7px 8px;vertical-align:top;">Abraham</td>
+<td style="border-bottom:1px solid #d5dce6;padding:7px 8px;vertical-align:top;">Needed to test "any OM"</td>
+</tr>
+<tr>
+<td style="border-bottom:1px solid #d5dce6;padding:7px 8px;vertical-align:top;">6</td>
+<td style="border-bottom:1px solid #d5dce6;padding:7px 8px;vertical-align:top;">Assumptions marked fixed vs. per-deal</td>
+<td style="border-bottom:1px solid #d5dce6;padding:7px 8px;vertical-align:top;">Abraham</td>
+<td style="border-bottom:1px solid #d5dce6;padding:7px 8px;vertical-align:top;">Lets the software fill in defaults safely</td>
+</tr>
+<tr>
+<td style="border-bottom:1px solid #d5dce6;padding:7px 8px;vertical-align:top;">7</td>
+<td style="border-bottom:1px solid #d5dce6;padding:7px 8px;vertical-align:top;">Answers on the 4 model issues</td>
+<td style="border-bottom:1px solid #d5dce6;padding:7px 8px;vertical-align:top;">Abraham</td>
+<td style="border-bottom:1px solid #d5dce6;padding:7px 8px;vertical-align:top;">Avoids building the errors into the software</td>
+</tr>
+<tr>
+<td style="border-bottom:1px solid #d5dce6;padding:7px 8px;vertical-align:top;">8</td>
+<td style="border-bottom:1px solid #d5dce6;padding:7px 8px;vertical-align:top;">Unit codes, HOME limits, utility allowance sources</td>
+<td style="border-bottom:1px solid #d5dce6;padding:7px 8px;vertical-align:top;">Abraham</td>
+<td style="border-bottom:1px solid #d5dce6;padding:7px 8px;vertical-align:top;">Needed for the rent roll step</td>
+</tr>
+<tr>
+<td style="border-bottom:1px solid #d5dce6;padding:7px 8px;vertical-align:top;">9</td>
+<td style="border-bottom:1px solid #d5dce6;padding:7px 8px;vertical-align:top;">Weekly 1-hour review</td>
+<td style="border-bottom:1px solid #d5dce6;padding:7px 8px;vertical-align:top;">Abraham</td>
+<td style="border-bottom:1px solid #d5dce6;padding:7px 8px;vertical-align:top;">Keeps the numbers accurate</td>
+</tr>
+</tbody>
+</table>
+<h2 style="font-family:Arial,Helvetica,sans-serif;font-size:18px;line-height:25px;color:#1F3A5F;margin:26px 0 8px 0;padding-bottom:4px;border-bottom:2px solid #1F3A5F;">6. What I'll do next</h2>
+<ul style="margin:0 0 10px 0;padding-left:22px;">
+<li style="margin-bottom:6px;"><strong>Build the rent roll step:</strong> group units by type and income level, and handle voucher and subsidy lines.</li>
+<li style="margin-bottom:6px;"><strong>Connect public data:</strong> HUD rent limits by ZIP code, state tax-credit rent limits, and HOME limits.</li>
+<li style="margin-bottom:6px;"><strong>Run Cambridge Court from the OM alone</strong> and compare it with Abraham's model, to show how close the quick first look gets.</li>
+<li style="margin-bottom:6px;"><strong>Send Abraham the assumptions list</strong> to mark up.</li>
+</ul>
+<p style="margin:0 0 10px 0;">I'll give a firm Phase 2 timeline once the past deals and the CoStar decision are in hand, since those set the pace.</p>
+<p style="margin:16px 0 0 0;">Happy to walk through any of this in person.</p>
+</td></tr>
+<tr><td style="padding:18px 28px 24px 28px;font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#555555;border-top:1px solid #e6eaf0;">
+Brandon Rose<br>Special Projects / SaaS Director, ApartmentCorp<br>(323) 917-4700 ext. 220 &nbsp;·&nbsp; brandon@apartmentcorp.com
+</td></tr>
+</table></td></tr></table></body></html>
