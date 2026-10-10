@@ -1,0 +1,43 @@
+# Readiness Assessment: "Any OM in, full investment analysis out"
+
+*Oct 10, 2026. Status of the Property Valuation Software (repo: BrandonRose2/Portfolio-Valuation-Automation).*
+
+## Verdict
+Enough to build the foundation and a working version for LIHTC deals like Cambridge Court. **Not yet enough to promise "any OM."** The main gaps are reference deals, Abraham's written assumptions, and outside data access, not code.
+
+## What we have
+- One complete reference deal (Cambridge Court): OM, seller T-12 / rent roll / payroll / turnover, and Abraham's finished model as the answer key.
+- The GPC Underwriting Model Template v4.
+- Input map: all 99 input cells mapped to source and rule.
+- T-12 tagger built and tested: 78 lines, NOI ties to the penny; keyword rules match 74 of 75 of Abraham's tags.
+- Abraham's verbal rules (subsidy lines, AMI tagging, unit codes, HOME limits, placed-in-service date).
+
+## Key reality
+Abraham's model is driven mostly by the **seller's T-12 and rent roll, not the OM**. Many OMs (including Cambridge's) contain a unit-level rent roll and an operating summary, so the software can produce:
+1. **Preliminary analysis from the OM alone** (fast screening), then
+2. **Full underwriting** once the seller's T-12 and rent roll arrive.
+
+## Gaps, ranked
+1. **More reference deals.** Only 1. Need 5–10 past OMs with Abraham's finished models, across brokers, property types and states. Without these, "any OM" can't be tested.
+2. **Scope.** LIHTC only, or market-rate and Section 8 HAP deals too? The template is built around AMI and vouchers.
+3. **Abraham's assumptions in writing.** 40 defaults and 10 per-deal decisions (insurance, management fee, exit cap, loan terms, rehab, GP/LP split).
+4. **Outside data.** HUD FMR / SAFMR (public, automatable); state LIHTC rent limits and HOME limits (published per state); utility allowances (property / housing authority); county tax rates; **CoStar market rents (needs a license or API, plus a cost decision)**.
+5. **Model fixes.** Scenario 1 equals Scenario 0; 10% vs 25% GP equity; rehab budget never spent; formulas missing from the template; untagged T-12 line ($352) in the Cambridge model.
+6. **Output definition.** What Marc actually wants to see: the Dashboard, a one-page memo, the filled Excel model, or all three.
+7. **Architecture choice.** Recommended: compute the model in code (fast, testable, explainable), export to the Excel template for familiarity, and check against Excel recalculation.
+8. **Operations.** Hosting, logins, privacy (rent rolls carry tenant names), AI API and CoStar costs.
+9. **Prior work.** What the programmer built during his 7 months.
+
+## Needed from Marc and Abraham
+- [ ] 5–10 past deals: OM + seller files + finished model
+- [ ] Scope decision: deal types and states
+- [ ] Abraham's written assumptions and house standards
+- [ ] CoStar access decision
+- [ ] A sample of the output Marc wants
+- [ ] Access to the previous programmer's work
+
+## Proposed phases
+1. OM-only preliminary analysis for LIHTC deals, tested on Cambridge against Abraham's numbers.
+2. Full underwriting from seller files (T-12 done; rent roll next), plus HUD and LIHTC lookups.
+3. Returns and waterfall computed in code, Excel export, review screen.
+4. Generalize across more reference deals and deal types; hosted web app.
